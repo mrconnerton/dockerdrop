@@ -1,8 +1,8 @@
 version: '2'
 services:
   web:
-    #image: dockerdrop/dockerdrop-nginx:latest
-    build: ./docker/nginx/
+    image: aspiringweb/dockerdrop-nginx:latest
+    #build: ./docker/nginx/
     ports:
       - "8000:80"
     volumes:
@@ -17,8 +17,8 @@ services:
       NGINX_MAX_BODY_SIZE: 20m
 
   php:
-    #image: dockerdrop/dockerdrop-php:latest
-    build: ./docker/php/
+    image: aspiringweb/dockerdrop-php:latest
+    #build: ./docker/php/
     expose:
       - 9000
     volumes:
@@ -39,7 +39,8 @@ services:
       PHP_DOCROOT: www
 
   db:
-    image: mariadb:10.1.21
+    # image: mariadb:10.1.21
+    image: mysql:5.7.17
     environment:
       MYSQL_ROOT_PASSWORD: root
       MYSQL_DATABASE: drupal
